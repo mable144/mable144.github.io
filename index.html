@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<title>谷歌广告开户代投 | 专业广告账户管理服务</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				background-color: #ffffff;
+				color: #1f2d3d;
+				line-height: 1.5;
+				scroll-behavior: smooth;
+			}
+
+			.container {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding: 0 24px;
+			}
+
+			/* 导航栏 */
+			.navbar {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 20px 0;
+				flex-wrap: wrap;
+				gap: 16px;
+				border-bottom: 1px solid #eef2f6;
+			}
+
+			.logo {
+				font-size: 1.6rem;
+				font-weight: 600;
+				letter-spacing: -0.3px;
+				background: linear-gradient(135deg, #1a5cff, #1e3a8a);
+				background-clip: text;
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 32px;
+				flex-wrap: wrap;
+			}
+
+			.nav-links a {
+				text-decoration: none;
+				color: #2c3e50;
+				font-weight: 500;
+				transition: color 0.2s;
+			}
+
+			.nav-links a:hover {
+				color: #1a5cff;
+			}
+
+			/* 按钮通用 */
+			.btn-primary {
+				display: inline-block;
+				background-color: #1a5cff;
+				color: white;
+				font-weight: 600;
+				padding: 12px 28px;
+				border-radius: 40px;
+				text-decoration: none;
+				transition: background 0.2s, transform 0.1s;
+				box-shadow: 0 2px 6px rgba(26, 92, 255, 0.2);
+			}
+
+			.btn-primary:hover {
+				background-color: #0e4ad0;
+			}
+
+			/* 英雄区 */
+			.hero {
+				padding: 70px 0 80px;
+				text-align: center;
+			}
+
+			.hero h1 {
+				font-size: 3rem;
+				font-weight: 800;
+				letter-spacing: -0.02em;
+				background: linear-gradient(145deg, #0b2545, #2c5282);
+				background-clip: text;
+				-webkit-background-clip: text;
+				color: transparent;
+				margin-bottom: 20px;
+			}
+
+			.hero .sub {
+				font-size: 1.25rem;
+				color: #4a627a;
+				max-width: 700px;
+				margin: 0 auto 32px;
+			}
+
+			.hero .btn-hero {
+				font-size: 1.1rem;
+				padding: 14px 36px;
+				box-shadow: 0 8px 20px rgba(26, 92, 255, 0.25);
+			}
+
+			/* 通用区块 */
+			.section {
+				padding: 70px 0;
+				border-top: 1px solid #edf2f7;
+			}
+
+			.section:first-of-type {
+				border-top: none;
+			}
+
+			.section-title {
+				font-size: 2rem;
+				font-weight: 700;
+				text-align: center;
+				margin-bottom: 48px;
+				letter-spacing: -0.3px;
+				color: #0f2b3d;
+			}
+
+			/* 优势网格 */
+			.advantages-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 32px;
+			}
+
+			.advantage-card {
+				background: #f9fafc;
+				padding: 28px 24px;
+				border-radius: 28px;
+				transition: all 0.25s ease;
+				border: 1px solid #eef2f9;
+			}
+
+			.advantage-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+				border-color: #dce5f2;
+			}
+
+			.advantage-icon {
+				font-size: 2.4rem;
+				margin-bottom: 18px;
+			}
+
+			.advantage-card h3 {
+				font-size: 1.4rem;
+				margin-bottom: 12px;
+				font-weight: 600;
+			}
+
+			.advantage-card p {
+				color: #3e5a76;
+				line-height: 1.5;
+			}
+
+			/* 关于我们 */
+			.about-content {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 48px;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.about-text {
+				flex: 1.2;
+			}
+
+			.about-text p {
+				font-size: 1.1rem;
+				margin-bottom: 20px;
+				color: #2c3f55;
+			}
+
+			.about-stats {
+				flex: 0.8;
+				background: #f8fafd;
+				padding: 32px 28px;
+				border-radius: 32px;
+				border: 1px solid #eef2f6;
+			}
+
+			.stat-item {
+				margin-bottom: 24px;
+			}
+
+			.stat-number {
+				font-size: 2rem;
+				font-weight: 800;
+				color: #1a5cff;
+				line-height: 1.2;
+			}
+
+			.stat-label {
+				color: #4b6b8f;
+				font-weight: 500;
+			}
+
+			/* 联系我们 */
+			.contact-wrapper {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 40px;
+				background: #f9fbfe;
+				border-radius: 40px;
+				padding: 40px 36px;
+				border: 1px solid #e9edf4;
+			}
+
+			.contact-info {
+				flex: 1;
+			}
+
+			.contact-info h3 {
+				font-size: 1.6rem;
+				margin-bottom: 20px;
+				font-weight: 600;
+			}
+
+			.contact-detail {
+				margin: 24px 0;
+				padding: 8px 0;
+				border-bottom: 1px dashed #dce5ef;
+			}
+
+			.contact-detail strong {
+				display: inline-block;
+				width: 90px;
+				font-weight: 600;
+				color: #1f3b4c;
+			}
+
+			.contact-detail span {
+				color: #2c5282;
+			}
+
+			.contact-cta {
+				flex: 0.8;
+				background: white;
+				border-radius: 28px;
+				padding: 28px;
+				text-align: center;
+				box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+				border: 1px solid #eef2f8;
+			}
+
+			.contact-cta p {
+				margin-bottom: 24px;
+				font-size: 1rem;
+				color: #2d496c;
+			}
+
+			.btn-secondary {
+				background: #eef2ff;
+				color: #1a5cff;
+				padding: 12px 28px;
+				border-radius: 40px;
+				font-weight: 600;
+				text-decoration: none;
+				display: inline-block;
+				transition: 0.2s;
+			}
+
+			.btn-secondary:hover {
+				background: #e2e9fe;
+			}
+
+			/* 常见问题 手风琴效果 */
+			.faq-list {
+				max-width: 880px;
+				margin: 0 auto;
+			}
+
+			.faq-item {
+				background: #ffffff;
+				border: 1px solid #e9edf4;
+				border-radius: 24px;
+				margin-bottom: 16px;
+				overflow: hidden;
+				transition: all 0.2s;
+			}
+
+			.faq-question {
+				padding: 20px 28px;
+				font-size: 1.1rem;
+				font-weight: 600;
+				cursor: pointer;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background: #ffffff;
+				color: #123256;
+			}
+
+			.faq-question .indicator {
+				font-size: 1.6rem;
+				font-weight: 400;
+				transition: transform 0.2s;
+				color: #6883a5;
+			}
+
+			.faq-answer {
+				padding: 0 28px;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease-out, padding 0.2s;
+				color: #3f5e7e;
+				background: #fefefe;
+				border-top: 0px solid transparent;
+			}
+
+			.faq-item.active .faq-answer {
+				max-height: 280px;
+				padding: 0 28px 24px 28px;
+				border-top: 1px solid #eef2f6;
+			}
+
+			.faq-item.active .indicator {
+				transform: rotate(45deg);
+			}
+
+			/* 页脚 */
+			.footer {
+				background-color: #f8fafc;
+				padding: 32px 0;
+				text-align: center;
+				font-size: 0.85rem;
+				color: #5a7184;
+				border-top: 1px solid #e9ecf2;
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					padding: 0 20px;
+				}
+
+				.hero h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero {
+					padding: 48px 0 56px;
+				}
+
+				.section {
+					padding: 48px 0;
+				}
+
+				.contact-wrapper {
+					padding: 28px 24px;
+					flex-direction: column;
+				}
+
+				.navbar {
+					flex-direction: column;
+				}
+
+				.nav-links {
+					justify-content: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+
+		<nav class="container">
+			<div class="navbar">
+				<div class="logo">XiongXiao代投</div>
+				<div class="nav-links">
+					<a href="#advantages">优势</a>
+					<a href="#about">关于我们</a>
+					<a href="#contact">联系我们</a>
+					<a href="#faq">常见问题</a>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			<!-- 英雄区 包含客服链接 -->
+			<div class="hero container">
+				<h1>谷歌广告开户 & 专业代投</h1>
+				<div class="sub">高效账户搭建 · 精准投放优化 · 让广告转化更可控</div>
+			</div>
+
+			<!-- 我们的优势 -->
+			<div id="advantages" class="section">
+				<div class="container">
+					<h2 class="section-title">我们的优势</h2>
+					<div class="advantages-grid">
+						<div class="advantage-card">
+							<div class="advantage-icon">⚡</div>
+							<h3>快速开户</h3>
+							<p>标准材料递交后，工作日极速下户，减少等待时间，快速启动谷歌广告营销。</p>
+						</div>
+						<div class="advantage-card">
+							<div class="advantage-icon">🎯</div>
+							<h3>精准代投优化</h3>
+							<p>资深投放团队基于数据分析，合理调整出价、关键词及受众，提升广告成效。</p>
+						</div>
+						<div class="advantage-card">
+							<div class="advantage-icon">🛡️</div>
+							<h3>账户风控指导</h3>
+							<p>提前规避账户违规风险，提供合规建议，保障广告账户稳定运行。</p>
+						</div>
+						<div class="advantage-card">
+							<div class="advantage-icon">📊</div>
+							<h3>透明数据报表</h3>
+							<p>定期输出广告表现报告，花费与转化清晰可查，投放策略随时调整。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 关于我们 -->
+			<div id="about" class="section">
+				<div class="container">
+					<h2 class="section-title">关于我们</h2>
+					<div class="about-content">
+						<div class="about-text">
+							<p>团队核心成员拥有多年海外广告投放经验，专注于谷歌广告生态（搜索广告、展示广告、购物广告及效果最大化广告）。我们为电商、B2B、游戏、应用等不同行业提供从开户到投放的一站式服务。
+							</p>
+							<p>不同于强调所谓“官方合作”，我们更注重真实执行与客户增长，坚持“数据驱动，透明运营”的理念。已协助上百家企业拓展海外市场，提高广告投资回报率。</p>
+						</div>
+						<div class="about-stats">
+							<div class="stat-item">
+								<div class="stat-number">300+</div>
+								<div class="stat-label">服务全球广告账户</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">5年+</div>
+								<div class="stat-label">广告投放经验积累</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">多行业</div>
+								<div class="stat-label">电商 / 应用 / 线索类</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 联系我们 无表单 -->
+			<div id="contact" class="section">
+				<div class="container">
+					<h2 class="section-title">联系我们</h2>
+					<div class="contact-wrapper">
+						<div class="contact-info">
+							<h3>获取开户报价与代投方案</h3>
+							<div class="contact-detail"><strong>✉️ 商务邮箱</strong> <span>mablecraig144@gmail.com</span>
+							</div>
+							<div class="contact-detail"><strong>⏰ 工作时间</strong> <span>周一至周五 09:30 - 18:30 (UTC+8)</span>
+							</div>
+							<div class="contact-detail"><strong>📍 办公地址</strong> <span>中国（四川）自由贸易试验区成都高新区天府大道中段1388号11栋15层1509号</span>
+							</div>
+						</div>
+						<div class="contact-cta">
+							<p style="font-weight:500;">需要快速响应？点击下方按钮直接联系客户顾问</p>
+							<a href="#" class="btn-secondary" id="contactLinkBtn">📱 联系在线客服</a>
+							<p style="font-size:0.85rem; margin-top:20px;">开户资料可线上发送，一对一服务指导</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 常见问题 折叠效果 -->
+			<div id="faq" class="section">
+				<div class="container">
+					<h2 class="section-title">常见问题</h2>
+					<div class="faq-list" id="faqContainer">
+						<div class="faq-item">
+							<div class="faq-question">
+								开户需要准备哪些材料？
+								<span class="indicator">+</span>
+							</div>
+							<div class="faq-answer">通常需要提供营业执照（或个体户身份证明）、网站链接、推广业务说明及结算方式信息。具体行业可能补充资质，我们会提前告知清单并协助整理。
+							</div>
+						</div>
+						<div class="faq-item">
+							<div class="faq-question">
+								代投服务包含哪些内容？
+								<span class="indicator">+</span>
+							</div>
+							<div class="faq-answer">包含广告账户开户、基础追踪设置、广告架构规划、日常投放优化、A/B测试及周报数据复盘。素材制作及翻译单独计费，可自由选择。</div>
+						</div>
+						<div class="faq-item">
+							<div class="faq-question">
+								广告预算及服务费用如何收取？
+								<span class="indicator">+</span>
+							</div>
+							<div class="faq-answer">广告预算由客户自主充值至谷歌广告账户，代投服务费按月或按消耗比例收取，无隐藏费用。具体比例依据账户消耗规模确定，开户前可确认报价单。
+							</div>
+						</div>
+						<div class="faq-item">
+							<div class="faq-question">
+								开户后广告账户归属权是谁？
+								<span class="indicator">+</span>
+							</div>
+							<div class="faq-answer">广告账户完全属于客户，您拥有管理员权限，可随时查看数据及修改付款方式。我们是协助方，不侵占任何账户资产数据。</div>
+						</div>
+						<div class="faq-item">
+							<div class="faq-question">
+								首次合作需要多久可以看到效果？
+								<span class="indicator">+</span>
+							</div>
+							<div class="faq-answer">广告上线后通常1-2周会积累初步数据，优化师会持续调整定向与出价，根据行业差异一般在3-4周逐步稳定成本与转化率。</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<p>© 2026 四川省熊安消防安全技术服务中心 | 专注谷歌广告开户及投放优化服务 | 本页面仅用于业务展示</p>
+			</div>
+		</footer>
+
+		<script>
+			(function() {
+				const faqItems = document.querySelectorAll('.faq-item');
+				function toggleFaq(item) {
+					const isActive = item.classList.contains('active');
+					faqItems.forEach(fi => {
+						fi.classList.remove('active');
+					});
+					if (!isActive) {
+						item.classList.add('active');
+					}
+				}
+
+				faqItems.forEach(item => {
+					const questionDiv = item.querySelector('.faq-question');
+					if (questionDiv) {
+						questionDiv.addEventListener('click', (e) => {
+							e.stopPropagation();
+							toggleFaq(item);
+						});
+					}
+				});
+
+				if (faqItems.length > 0) {
+					faqItems[0].classList.add('active');
+				}
+			})();
+		</script>
+	</body>
+</html>
